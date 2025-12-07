@@ -1,0 +1,41 @@
+[
+  {
+    "id": "sports-day-2025",
+    "title": "Annual Sports Day",
+    "date": "2025-12-15",
+    "type": "event",
+    "location": "School Ground",
+    "description": "Track & field, team games, and awards ceremony.",
+    "googleCalendarUrl": "https://calendar.google.com/",
+    "ics": {
+      "title": "Annual Sports Day",
+      "start": "2025-12-15T09:00:00Z",
+      "end": "2025-12-15T16:00:00Z",
+      "description": "Ambition Public School — Annual Sports Day",
+      "location": "School Ground"
+    }
+  },
+  {
+    "id": "scholarship-test-2026",
+    "title": "Scholarship Test (Class 6–9)",
+    "date": "2026-01-20",
+    "type": "event",
+    "location": "Main Campus",
+    "description": "Merit-based scholarship assessment.",
+    "googleCalendarUrl": "https://calendar.google.com/",
+    "ics": {
+      "title": "Scholarship Test",
+      "start": "2026-01-20T10:00:00Z",
+      "end": "2026-01-20T13:00:00Z",
+      "description": "Ambition Public School — Scholarship Test",
+      "location": "Main Campus"
+    }
+  },
+  {
+    "id": "winter-break-2025",
+    "title": "Winter Break",
+    "date": "2025-12-24",
+    "type": "holiday",
+    "description": "School closed for winter holidays."
+  }
+]

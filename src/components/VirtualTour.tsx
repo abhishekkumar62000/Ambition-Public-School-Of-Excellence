@@ -3,6 +3,11 @@ import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { X, Play, Pause, ChevronRight, ChevronLeft, MapPin } from "lucide-react";
 import heroImage from "@/assets/hero-school.jpg";
+import compusImage from "@/assets/compus.jpeg";
+import ambitionSchoolImage from "@/assets/ambition school.png";
+import compusImage2 from "@/assets/compus2.jpeg";
+import campusImage3 from "@/assets/campus3.jpeg";
+import babygirlImage from "@/assets/babygirl.jpeg";
 
 interface VirtualTourProps {
     children: React.ReactNode;
@@ -13,7 +18,7 @@ const tourScenes = [
         id: "campus",
         title: "Main Campus",
         description: "Our sprawling 5-acre campus with lush green gardens and modern architecture.",
-        image: heroImage, // Using hero image as base for all scenes for now
+        images: [babygirlImage, compusImage, ambitionSchoolImage, compusImage2, campusImage3],
         highlights: ["Administrative Block", "Assembly Square", "Botanical Garden"]
     },
     {
@@ -49,6 +54,7 @@ const tourScenes = [
 export function VirtualTour({ children }: VirtualTourProps) {
     const [open, setOpen] = useState(false);
     const [currentScene, setCurrentScene] = useState(0);
+    const [currentSubImage, setCurrentSubImage] = useState(0);
     const [isPlaying, setIsPlaying] = useState(false);
 
     useEffect(() => {
@@ -56,17 +62,45 @@ export function VirtualTour({ children }: VirtualTourProps) {
         if (isPlaying && open) {
             interval = setInterval(() => {
                 setCurrentScene((prev) => (prev + 1) % tourScenes.length);
+                setCurrentSubImage(0);
             }, 4000);
         }
         return () => clearInterval(interval);
     }, [isPlaying, open]);
 
+    useEffect(() => {
+        // Reset sub-image when scene changes
+        setCurrentSubImage(0);
+    }, [currentScene]);
+
     const handleNext = () => {
+        const scene: any = tourScenes[currentScene] as any;
+        if (scene.images && Array.isArray(scene.images)) {
+            if (currentSubImage < scene.images.length - 1) {
+                setCurrentSubImage((prev) => prev + 1);
+                return;
+            }
+        }
         setCurrentScene((prev) => (prev + 1) % tourScenes.length);
+        setCurrentSubImage(0);
     };
 
     const handlePrev = () => {
-        setCurrentScene((prev) => (prev - 1 + tourScenes.length) % tourScenes.length);
+        const scene: any = tourScenes[currentScene] as any;
+        if (scene.images && Array.isArray(scene.images)) {
+            if (currentSubImage > 0) {
+                setCurrentSubImage((prev) => prev - 1);
+                return;
+            }
+        }
+        const nextScene = (currentScene - 1 + tourScenes.length) % tourScenes.length;
+        setCurrentScene(nextScene);
+        const prevScene: any = tourScenes[nextScene] as any;
+        if (prevScene.images && Array.isArray(prevScene.images) && prevScene.images.length > 0) {
+            setCurrentSubImage(prevScene.images.length - 1);
+        } else {
+            setCurrentSubImage(0);
+        }
     };
 
     return (
@@ -89,12 +123,20 @@ export function VirtualTour({ children }: VirtualTourProps) {
                     <div className="flex-1 relative overflow-hidden group">
                         {/* Scene Image */}
                         <div className="absolute inset-0 transition-all duration-1000 ease-in-out">
-                            <img
-                                src={tourScenes[currentScene].image}
-                                alt={tourScenes[currentScene].title}
-                                className="w-full h-full object-cover animate-scale-in"
-                                key={currentScene} // Triggers animation on change
-                            />
+                            {(() => {
+                                const scene: any = tourScenes[currentScene] as any;
+                                const currentImage = scene.images && Array.isArray(scene.images)
+                                    ? scene.images[currentSubImage]
+                                    : scene.image;
+                                return (
+                                    <img
+                                        src={currentImage}
+                                        alt={tourScenes[currentScene].title}
+                                        className="w-full h-full object-contain object-center animate-scale-in"
+                                        key={`${currentScene}-${currentSubImage}`}
+                                    />
+                                );
+                            })()}
                             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
                         </div>
 

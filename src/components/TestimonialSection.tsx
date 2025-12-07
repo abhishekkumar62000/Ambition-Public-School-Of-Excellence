@@ -1,9 +1,11 @@
+import React, { useEffect, useState } from "react";
 import {
     Carousel,
     CarouselContent,
     CarouselItem,
     CarouselNext,
     CarouselPrevious,
+    CarouselApi,
 } from "@/components/ui/carousel";
 import { Card, CardContent } from "@/components/ui/card";
 import { Quote } from "lucide-react";
@@ -34,7 +36,30 @@ const TestimonialSection = () => {
             content: "The balance between sports and academics is perfect. My son represents the school in cricket and still scores well. Best school in Darbhanga for holistic growth.",
             rating: 5,
         },
+        {
+            name: "Sunita Kumar",
+            role: "Mother of Meera (Class 2)",
+            content: "Warm classrooms, kind teachers, and excellent communication — we always feel informed and supported.",
+            rating: 5,
+        },
+        {
+            name: "Alok Verma",
+            role: "Father of Kabir (Class 7)",
+            content: "Co-curricular exposure has boosted Kabir's confidence. Debate club and science fairs are fantastic!",
+            rating: 5,
+        },
     ];
+
+    const [api, setApi] = useState<CarouselApi | null>(null);
+
+    // Autoplay: advance slides automatically
+    useEffect(() => {
+        if (!api) return;
+        const interval = setInterval(() => {
+            api.scrollNext();
+        }, 4000); // 4s per slide
+        return () => clearInterval(interval);
+    }, [api]);
 
     return (
         <section className="py-20 bg-muted/30">
@@ -56,6 +81,7 @@ const TestimonialSection = () => {
                         align: "start",
                         loop: true,
                     }}
+                    setApi={setApi}
                     className="w-full max-w-6xl mx-auto"
                 >
                     <CarouselContent className="-ml-2 md:-ml-4">

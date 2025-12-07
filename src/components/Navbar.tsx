@@ -25,10 +25,7 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
-          ? "bg-card/95 backdrop-blur-md shadow-card"
-          : "bg-transparent"
-        }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-card/95 backdrop-blur-md shadow-card`}
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
@@ -38,10 +35,10 @@ const Navbar = () => {
               <GraduationCap className="w-7 h-7 text-primary-foreground" />
             </div>
             <div className="flex flex-col">
-              <span className={`font-display font-bold text-lg leading-tight ${isScrolled ? "text-foreground" : "text-primary-foreground"}`}>
+              <span className={`font-display font-bold text-lg leading-tight text-foreground`}>
                 Ambition Public School of Excellence
               </span>
-              <span className={`text-xs font-medium ${isScrolled ? "text-muted-foreground" : "text-primary-foreground/80"}`}>
+              <span className={`text-xs font-medium text-muted-foreground`}>
                 CBSE School
               </span>
             </div>
@@ -53,8 +50,7 @@ const Navbar = () => {
               <a
                 key={link.name}
                 href={link.href}
-                className={`font-medium transition-colors duration-300 hover:text-secondary ${isScrolled ? "text-foreground" : "text-primary-foreground"
-                  }`}
+                className={`font-medium transition-colors duration-300 hover:text-secondary text-foreground`}
               >
                 {link.name}
               </a>
@@ -72,9 +68,9 @@ const Navbar = () => {
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? (
-              <X className={`w-6 h-6 ${isScrolled ? "text-foreground" : "text-primary-foreground"}`} />
+              <X className={`w-6 h-6 text-foreground`} />
             ) : (
-              <Menu className={`w-6 h-6 ${isScrolled ? "text-foreground" : "text-primary-foreground"}`} />
+              <Menu className={`w-6 h-6 text-foreground`} />
             )}
           </button>
         </div>

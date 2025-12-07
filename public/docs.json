@@ -1,0 +1,5 @@
+[
+  { "id": "prospectus", "title": "School Prospectus", "type": "pdf", "tag": "admissions", "url": "https://example.com/prospectus.pdf" },
+  { "id": "fee-structure", "title": "Fee Structure 2025-26", "type": "pdf", "tag": "fees", "url": "https://example.com/fee-structure.pdf" },
+  { "id": "syllabus-primary", "title": "Syllabus (Primary)", "type": "pdf", "tag": "academics", "url": "https://example.com/syllabus-primary.pdf" }
+]

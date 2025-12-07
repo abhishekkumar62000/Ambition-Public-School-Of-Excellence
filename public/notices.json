@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "text": "🎓 Admissions Open for Session 2025-26 — Apply Now!",
+    "date": "2025-12-01",
+    "priority": "high",
+    "url": "/#admissions"
+  },
+  {
+    "id": 2,
+    "text": "🏆 Annual Sports Day scheduled for 15th December",
+    "date": "2025-12-15",
+    "priority": "medium",
+    "url": "/#events"
+  },
+  {
+    "id": 3,
+    "text": "✨ Scholarship Test for Class 6–9 on 20th January",
+    "date": "2026-01-20",
+    "priority": "high",
+    "url": "/#scholarship"
+  },
+  {
+    "id": 4,
+    "text": "📚 New Robotics Lab inauguration by District Magistrate",
+    "date": "2026-02-05",
+    "priority": "info",
+    "url": "/#news"
+  }
+]

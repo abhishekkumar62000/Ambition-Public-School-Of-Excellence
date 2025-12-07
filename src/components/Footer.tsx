@@ -125,11 +125,18 @@ const Footer = () => {
       {/* Bottom Bar */}
       <div className="border-t border-primary-foreground/10">
         <div className="container mx-auto px-4 py-6">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="text-primary-foreground/60 text-sm text-center md:text-left">
-              © 2024 Ambition Public School of Excellence, Sonki, Pingi, Darbhanga. All rights reserved.
-            </p>
-            <div className="flex items-center gap-6 text-sm">
+          {/* Centered developer credit */}
+          <div className="flex flex-col items-center gap-3 mb-4">
+            <a
+              href="https://abhi-yadav.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-transparent bg-clip-text bg-gradient-to-r from-secondary via-accent to-secondary font-display font-bold text-base md:text-lg animate-pulse hover:opacity-90 transition-opacity"
+              aria-label="Developer portfolio"
+            >
+              Built by Abhishek Yadav
+            </a>
+            <div className="flex items-center gap-4 text-sm">
               <a href="#" className="text-primary-foreground/60 hover:text-secondary transition-colors">
                 Privacy Policy
               </a>
@@ -137,6 +144,11 @@ const Footer = () => {
                 Terms of Service
               </a>
             </div>
+          </div>
+          <div className="flex items-center justify-center">
+            <p className="text-primary-foreground/60 text-sm text-center">
+              © 2024 Ambition Public School of Excellence, Sonki, Pingi, Darbhanga. All rights reserved.
+            </p>
           </div>
         </div>
       </div>

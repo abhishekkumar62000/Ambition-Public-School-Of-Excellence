@@ -10,6 +10,8 @@ import PrePrimaryPage from "./pages/PrePrimaryPage";
 import PrimaryPage from "./pages/PrimaryPage";
 import MiddleSchoolPage from "./pages/MiddleSchoolPage";
 import SecondaryPage from "./pages/SecondaryPage";
+import EventsPage from "./pages/Events";
+import GalleryPage from "./pages/Gallery";
 
 const queryClient = new QueryClient();
 
@@ -21,6 +23,8 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/events" element={<EventsPage />} />
+          <Route path="/gallery" element={<GalleryPage />} />
           <Route path="/programs/pre-primary" element={<PrePrimaryPage />} />
           <Route path="/programs/primary" element={<PrimaryPage />} />
           <Route path="/programs/middle-school" element={<MiddleSchoolPage />} />

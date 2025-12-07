@@ -7,7 +7,7 @@ const DirectorSection = () => {
             <div className="container mx-auto px-4">
                 <div className="grid lg:grid-cols-2 gap-12 items-center">
                     {/* Image Column */}
-                    <div className="relative group order-2 lg:order-1">
+                    <div className="relative group order-1 lg:order-1">
                         <div className="absolute top-4 -left-4 w-full h-full bg-primary/10 rounded-3xl -z-10 group-hover:translate-x-2 group-hover:translate-y-2 transition-transform duration-500" />
                         <div className="absolute -bottom-4 -right-4 w-full h-full bg-secondary/10 rounded-3xl -z-10 group-hover:-translate-x-2 group-hover:-translate-y-2 transition-transform duration-500" />
                         <div className="relative rounded-3xl overflow-hidden shadow-2xl">
@@ -26,7 +26,7 @@ const DirectorSection = () => {
                     </div>
 
                     {/* Content Column */}
-                    <div className="order-1 lg:order-2">
+                    <div className="order-2 lg:order-2">
                         <span className="inline-block text-secondary font-semibold text-sm tracking-wider uppercase mb-4">
                             Leadership Vision
                         </span>
@@ -49,11 +49,21 @@ const DirectorSection = () => {
                             </div>
                         </div>
 
-                        <div className="mt-10 flex items-center gap-4">
-                            <div className="h-px bg-border flex-1" />
-                            <p className="font-handwriting text-4xl text-primary transform -rotate-2">
-                                Rahul & Supriya
-                            </p>
+                        <div className="mt-10">
+                            <div className="flex items-center gap-4">
+                                <div className="h-px bg-border flex-1" />
+                                <div className="text-right">
+                                    <p className="italic text-sm text-muted-foreground">Sincerely,</p>
+                                    <div className="inline-block">
+                                        <p className="font-handwriting text-3xl md:text-4xl text-primary transform -rotate-2 leading-none">Er. Rahul Yadav</p>
+                                        {/* signature flourish */}
+                                        <svg className="mt-1 w-full h-3 opacity-70" viewBox="0 0 200 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M3 12C35 5 75 5 107 12C139 19 167 19 197 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                                        </svg>
+                                    </div>
+                                    <p className="mt-1 text-xs text-muted-foreground">Directors</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
